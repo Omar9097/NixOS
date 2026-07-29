@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    btop
     curl
     wget
     git
@@ -13,3 +14,4 @@
     man-pages-posix
   ];
 }
+
