@@ -12,18 +12,30 @@
   home.username = username;
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "25.05";
+  # Git
   programs.git = {
     enable = true;
     userName = "Omar9097";
     userEmail = "oelnaggar114@gmaail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
+  # ssh
+  programs.ssh =
+    {
+      enable = true;
+      addKeysToAgent = "yes";
+    };
+
   # Additional packages that don't fit in other modules (e.g., custom scripts)
-  home.packages = with pkgs; [
-    (pkgs.writeShellApplication {
-      name = "ns";
-      runtimeInputs = with pkgs; [ fzf nix-search-tv ];
-      text = ''exec "${pkgs.nix-search-tv.src}/nixpkgs.sh" "$@"'';
-    })
-  ];
+  home.packages = with pkgs;
+    [
+      (pkgs.writeShellApplication {
+        name = "ns";
+        runtimeInputs = with pkgs; [ fzf nix-search-tv ];
+        text = ''exec "${pkgs.nix-search-tv.src}/nixpkgs.sh" "$@"'';
+      })
+    ];
 }
 
