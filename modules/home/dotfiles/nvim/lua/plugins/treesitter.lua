@@ -6,7 +6,7 @@ return {
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
         config = function()
-            local configs = require("nvim-treesitter.configs")
+            local configs = require("nvim-treesitter.config")
             ---@diagnostic disable-next-line: missing-fields
             configs.setup({
                 textobjects = {
