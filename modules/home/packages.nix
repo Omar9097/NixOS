@@ -38,7 +38,7 @@
     firefox
 
     # ---- Fonts (for foot terminal & general use) ----
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
 
     # ---- Archive tools ----
     unzip

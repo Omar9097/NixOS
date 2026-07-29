@@ -14,7 +14,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
 
   # Enable wireless support (NetworkManager handles it)
-  networking.wireless.enable = false;  # conflicting with NetworkManager
+  # networking.wireless.enable = false;  # conflicting with NetworkManager
 
   # Optional: enable `nss-mdns` for .local hostname resolution
   services.avahi = {

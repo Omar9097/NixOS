@@ -34,7 +34,6 @@
 
         # Nvidia Optimus (Intel + Nvidia)
         nixos-hardware.nixosModules.common-gpu-nvidia
-        nixos-hardware.nixosModules.common-gpu-nvidia-prime
 
         home-manager.nixosModules.home-manager {
           home-manager = {

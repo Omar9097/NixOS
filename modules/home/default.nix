@@ -3,16 +3,20 @@
 {
   imports = [
     ./dotfiles.nix
-    ./neovim.nix      # Neovim + its dependencies
+    ./neovim.nix # Neovim + its dependencies
     ./bash.nix
     ./theme.nix
-    ./packages.nix    # user applications (wofi, rofi, pcmanfm, ...)
+    ./packages.nix # user applications (wofi, rofi, pcmanfm, ...)
   ];
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "25.05";
-
+  programs.git = {
+    enable = true;
+    userName = "Omar9097";
+    userEmail = "oelnaggar114@gmaail.com";
+  };
   # Additional packages that don't fit in other modules (e.g., custom scripts)
   home.packages = with pkgs; [
     (pkgs.writeShellApplication {
@@ -22,3 +26,4 @@
     })
   ];
 }
+

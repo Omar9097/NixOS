@@ -12,9 +12,10 @@
     ./modules/desktop/hyprland/hyprland.nix
     ./modules/packages/default.nix
   ];
-  
-  time.timeZone = "Africa/Cairo";  
 
+  time.timeZone = "Africa/Cairo";
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
   users.users.${username} = {
@@ -23,5 +24,5 @@
   };
 
   # Using "unstable" because you're on nixos-unstable
-  system.stateVersion = "unstable";
+  system.stateVersion = "26.05";
 }

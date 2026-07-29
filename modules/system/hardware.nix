@@ -7,19 +7,22 @@
     enable32Bit = true;
     extraPackages = with pkgs; [ intel-media-driver ];
   };
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # NVIDIA Optimus Prime offload
   hardware.nvidia = {
+    open = false;
+    modesetting.enable = true;
     nvidiaSettings = true;
-
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
     prime = {
       offload = {
         enable = true;
-        enableOffloadCmd = true;   # provides 'prime-run' command
-      }; 
+        enableOffloadCmd = true; # provides 'prime-run' command
+      };
 
-      intelBusId  = "PCI:0:2:0";   # Intel UHD Graphics
-      nvidiaBusId = "PCI:1:0:0";   # NVIDIA GeForce MXxxx
+      intelBusId = "PCI:0:2:0"; # Intel UHD Graphics
+      nvidiaBusId = "PCI:1:0:0"; # NVIDIA GeForce MXxxx
     };
   };
 
