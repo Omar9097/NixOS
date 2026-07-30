@@ -17,6 +17,10 @@
     # ---- File manager ----
     pcmanfm
     yazi
+    kdePackages.dolphin      # Dolphin file manager
+    kdePackages.kio          # required since NixOS 25.11 for Dolphin's core functionality
+    kdePackages.kio-extras   # extra protocol support (sftp, etc.)
+    kdePackages.breeze-icons # icon set so Dolphin doesn't show blank icons
     hyprpolkitagent
 
     # ---- Daily tools ----

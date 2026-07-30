@@ -1,6 +1,5 @@
 # modules/home/theme.nix
-# Home Manager module – consistent GTK, icon, and cursor theme.
-# All theming is set here, no need to export GTK_THEME etc. from Hyprland.
+# Home Manager module – consistent GTK, Qt, icon, and cursor theme, dark mode everywhere.
 { config, pkgs, ... }:
 {
   # Packages required for the themes
@@ -25,9 +24,27 @@
       name = "Adwaita";
       size = 24;
     };
-    # Optional: enable dark mode globally
-    # gtk.gtk3.extraCss = ...
-    # gtk.gtk4.extraCss = ...
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+  };
+
+  # Qt apps (Dolphin, etc.) follow their own theming system, separate from GTK
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk3";   # makes Qt apps match your GTK theme instead of default Breeze
+    style.name = "adwaita-dark";
+  };
+
+  # Tells apps that use the xdg-desktop-portal "Settings" API (Firefox, some
+  # GTK4/libadwaita apps) to prefer dark mode, independent of the GTK theme name.
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
 
   # Environment variables (needed by some toolkits, Flatpaks, etc.)

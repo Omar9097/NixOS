@@ -11,6 +11,7 @@
     ./screenshots.nix # screenshot-menu + grim/slurp/swappy/jq
     ./clipboard.nix # cliphist clipboard history
     ./udiskie.nix
+    ./gaming-home.nix
   ];
 
   home.username = username;

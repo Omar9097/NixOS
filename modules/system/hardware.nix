@@ -1,6 +1,7 @@
 # modules/system/hardware.nix
 { config, pkgs, ... }:
 {
+  programs.dconf.enable = true;
   # Intel VA-API hardware video acceleration
   hardware.graphics = {
     enable = true;

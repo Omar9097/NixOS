@@ -8,6 +8,7 @@
 
   # NetworkManager – the standard for laptops with WiFi
   networking.networkmanager.enable = true;
+  networking.useDHCP = false;
 
   # Firewall – enabled by default, but explicit
   networking.firewall.enable = true;
