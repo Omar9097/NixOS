@@ -9,6 +9,7 @@
     ./modules/system/hardware.nix
     ./modules/system/audio.nix
     ./modules/system/display-manager.nix
+    ./modules/system/keyboard.nix
     ./modules/desktop/hyprland/hyprland.nix
     ./modules/packages/default.nix
   ];

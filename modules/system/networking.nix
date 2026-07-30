@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 {
+  #Kdeconnect
+  programs.kdeconnect.enable = true;
+
   # Hostname (change to your liking)
   networking.hostName = "Blue";
 

@@ -12,6 +12,7 @@
     nix-tree
     man-pages
     man-pages-posix
+    brightnessctl
   ];
 }
 

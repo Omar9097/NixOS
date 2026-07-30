@@ -2,17 +2,20 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    # ---- cliphist ----
+    wl-clipboard
+    cliphist
 
     # ---- Terminals ----
-    foot                    # Wayland-native (foot.ini)
-    kitty                 # alternative terminal
+    foot # Wayland-native (foot.ini)
+    kitty # alternative terminal
 
     # ---- Hyprland desktop essentials ----
-    waybar                  # status bar
-    hyprpaper               # wallpaper daemon
-    rofi                    # app launcher (config in dotfiles)
-    mako                    # notification daemon
-    swaylock-effects        # lock screen
+    waybar # status bar
+    hyprpaper # wallpaper daemon
+    rofi # app launcher (config in dotfiles)
+    mako # notification daemon
+    swaylock-effects # lock screen
 
     # ---- Screenshots / clipboard ----
     grim
@@ -21,9 +24,10 @@
 
     # ---- File manager ----
     pcmanfm
+    yazi
 
     # ---- Daily tools ----
-    vim                     # fallback editor
+    vim # fallback editor
     wget
     git
 
@@ -46,7 +50,7 @@
     p7zip
 
     # ---- Optional ----
-    imv                     # image viewer
-    zathura                 # PDF viewer
+    imv # image viewer
+    zathura # PDF viewer
   ];
 }

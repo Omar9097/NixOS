@@ -35,4 +35,18 @@
     };
   };
 
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        DiscoverableTimeout = 0;
+        PairableTimeout = 0;
+        ControllerMode = "bredr";
+      };
+    };
+  };
+  services.blueman.enable = true;
+
 }
