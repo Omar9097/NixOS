@@ -2,10 +2,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # ---- cliphist ----
-    wl-clipboard
-    cliphist
-
     # ---- Terminals ----
     foot # Wayland-native (foot.ini)
     kitty # alternative terminal
@@ -16,15 +12,12 @@
     rofi # app launcher (config in dotfiles)
     mako # notification daemon
     swaylock-effects # lock screen
-
-    # ---- Screenshots / clipboard ----
-    grim
-    slurp
-    swappy
+    libnotify
 
     # ---- File manager ----
     pcmanfm
     yazi
+    hyprpolkitagent
 
     # ---- Daily tools ----
     vim # fallback editor

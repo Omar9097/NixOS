@@ -12,6 +12,7 @@
     ./modules/system/keyboard.nix
     ./modules/desktop/hyprland/hyprland.nix
     ./modules/packages/default.nix
+    ./modules/system/filesystems.nix
   ];
 
   time.timeZone = "Africa/Cairo";

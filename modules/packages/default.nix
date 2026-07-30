@@ -13,6 +13,7 @@
     man-pages
     man-pages-posix
     brightnessctl
+    ntfs3g
   ];
 }
 
