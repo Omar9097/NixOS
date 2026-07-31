@@ -31,6 +31,8 @@
     # ---- Media ----
     mpv
     pavucontrol
+    starship      # required by yazi's starship.yazi plugin
+    mediainfo     # required by yazi's mediainfo.yazi plugin (media previews)
 
     # ---- Eye candy ----
     nitch

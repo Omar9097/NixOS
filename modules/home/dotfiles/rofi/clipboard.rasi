@@ -1,0 +1,37 @@
+/* Clipboard menu theme — grid layout with medium icons, wider cells. */
+
+@theme "tokyonight.rasi"
+
+window {
+    width: 950px;
+    height: 680px;
+    location: center;
+    anchor: center;
+}
+
+listview {
+    columns: 2;
+    lines: 4;
+    spacing: 14px;
+    padding: 14px;
+}
+
+element {
+    orientation: vertical;
+    padding: 8px;
+    horizontal-align: 0.5;
+    content: center;
+}
+
+element-icon {
+    size: 7em;
+    background-color: transparent;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    padding: 6px 4px 0 4px;
+}

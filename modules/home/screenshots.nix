@@ -9,9 +9,14 @@
 
     (pkgs.writeShellApplication {
       name = "screenshot-menu";
-      runtimeInputs = with pkgs; [ rofi grim slurp swappy wl-clipboard libnotify hyprland jq ];
+      runtimeInputs = with pkgs; [ rofi grim slurp swappy wl-clipboard libnotify hyprland jq coreutils ];
       text = ''
         choice=$(printf "Full screen\nRegion\nWindow\nRegion (annotate)" | rofi -dmenu -p "Screenshot")
+
+        # Give Hyprland/rofi time to actually unmap the menu window
+        # before grabbing the screen, otherwise it can still be
+        # captured mid-close and show up as a ghost/transparent overlay.
+        sleep 0.3
 
         case "$choice" in
           "Full screen")
