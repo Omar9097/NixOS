@@ -15,8 +15,8 @@
 #[flavor]
 #light = "catppuccin-latte"
 
-[flavor]
-use = "tokyonight"
+#[flavor]
+#use = "tokyonight"
 
 #[flavor]
 #use = "onedark"

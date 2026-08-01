@@ -101,6 +101,31 @@ let
       find . -iname "*.ttf" -exec cp {} $out/share/fonts/truetype/ \;
     '';
   };
+
+  # materialyoucolor isn't in nixpkgs -- package it from PyPI so it can be
+  # bundled into a real python.withPackages closure below. Pure Python, no
+  # compiled extensions, so this is a plain buildPythonPackage.
+  materialyoucolor = pkgs.python3Packages.buildPythonPackage rec {
+    pname = "materialyoucolor";
+    version = "2.0.9";
+    format = "pyproject";
+    src = pkgs.fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-J35//h3tWn20f5ej6OXaw4NKnxung9q7m0E4Zf9PUw4=";
+    };
+    nativeBuildInputs = [ pkgs.python3Packages.setuptools ];
+    doCheck = false;
+  };
+
+  # The actual interpreter switchwall.sh's `python3 generate_colors_material.py`
+  # call resolves to on PATH, with every module those color scripts import
+  # baked in (Pillow, numpy, opencv4/cv2, materialyoucolor).
+  iiPython = pkgs.python3.withPackages (ps: [
+    ps.pillow
+    ps.numpy
+    ps.opencv4
+    materialyoucolor
+  ]);
 in
 {
   home.packages = with pkgs;
@@ -157,6 +182,15 @@ in
       libsoup_3
       libportal-gtk4
       gobject-introspection
+      # NOTE: `uv`/the venv at ~/.local/state/quickshell/.venv are NOT what
+      # actually gets used for wallpaper colors -- switchwall.sh calls
+      # `python3 generate_colors_material.py` directly, bypassing that
+      # script's own venv-activating shebang entirely. So the interpreter
+      # that needs Pillow/materialyoucolor/opencv4/numpy importable is
+      # whatever plain `python3` resolves to on PATH -- iiPython below.
+      # (uv/the venv are still fine to keep around for anything else that
+      # does properly activate it.)
+      iiPython
 
       ### illogical-impulse-screencapture
       grim
