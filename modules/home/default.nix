@@ -5,13 +5,14 @@
     ./dotfiles.nix
     ./neovim.nix # Neovim + its dependencies
     ./bash.nix
-    ./theme.nix
-    ./packages.nix # user applications (wofi, rofi, pcmanfm, ...)
-    ./notifications.nix # volume-notify, brightness-notify
-    ./screenshots.nix # screenshot-menu + grim/slurp/swappy/jq
-    ./clipboard.nix # cliphist clipboard history
+    #    ./theme.nix
+    ./packages.nix # user applications (kitty, dolphin, pcmanfm, ...)
+    # ./notifications.nix  # superseded: ii's Quickshell shell has its own OSDs for volume/brightness
+    # ./screenshots.nix    # superseded: ii binds Print/region-shot/OCR straight to grim/slurp/tesseract + its own overview UI
+    # ./clipboard.nix      # superseded: ii's Cliphist.qml service + SUPER+V overview handle clipboard history
     ./udiskie.nix
     ./gaming-home.nix
+    ./quickshell.nix
   ];
 
   home.username = username;

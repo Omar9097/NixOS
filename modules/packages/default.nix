@@ -15,5 +15,13 @@
     brightnessctl
     ntfs3g
   ];
+
+  fonts.packages = with pkgs; [
+    material-symbols
+    nerd-fonts.jetbrains-mono
+    rubik
+    google-fonts # Pulls in Readex Pro, Space Grotesk, and other Google fonts
+  ];
+
 }
 

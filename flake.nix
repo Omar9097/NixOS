@@ -10,9 +10,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, quickshell, ... }:
   let
     system = "x86_64-linux";
     username = "omar";
@@ -40,7 +45,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.${username} = import ./modules/home;   # ← updated path
-            extraSpecialArgs = { inherit username; };
+            extraSpecialArgs = { inherit username quickshell; };
             backupFileExtension = "backup";              # ← typo fixed
           };
         }

@@ -5,14 +5,18 @@
     # ---- Terminals ----
     foot # Wayland-native (foot.ini)
     kitty # alternative terminal
+    fish # foot's config (from ii dotfiles) uses this as its shell
 
     # ---- Hyprland desktop essentials ----
-    waybar # status bar
-    hyprpaper # wallpaper daemon
-    rofi # app launcher (config in dotfiles)
-    mako # notification daemon
-    swaylock-effects # lock screen
+    fuzzel # fallback launcher/clipboard-picker when Quickshell isn't running
+    hyprlock # lock screen (config comes from dotfiles/hypr)
     libnotify
+
+    # ---- ii shell runtime bits called directly from hypr/execs.lua & keybinds.lua ----
+    gnome-keyring # `gnome-keyring-daemon` is exec'd directly, not just via the system service
+    easyeffects # `easyeffects --hide-window --service-mode` autostart
+    wl-clipboard
+    cliphist
 
     # ---- File manager ----
     pcmanfm
